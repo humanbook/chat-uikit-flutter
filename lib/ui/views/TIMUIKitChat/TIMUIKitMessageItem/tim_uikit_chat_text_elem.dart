@@ -194,6 +194,8 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
     final backgroundColor =
         isShowJumpState ? const Color.fromRGBO(245, 166, 35, 1) : (defaultStyle ?? widget.backgroundColor);
 
+    final textColor = widget.isFromSelf
+        ? Colors.white : Colors.black;
     return Container(
       padding: widget.textPadding ?? EdgeInsets.all(isDesktopScreen ? 12 : 10),
       decoration: BoxDecoration(
@@ -209,14 +211,14 @@ class _TIMUIKitTextElemState extends TIMUIKitState<TIMUIKitTextElem> {
           widget.chatModel.chatConfig.urlPreviewType != UrlPreviewType.none
               ? textWithLink!(
                   style: widget.fontStyle ??
-                      TextStyle(
+                      TextStyle(color: textColor,
                           fontSize: isDesktopScreen ? 14 : 16,
                           textBaseline: TextBaseline.ideographic,
                           height: widget.chatModel.chatConfig.textHeight))
               : ExtendedText(widget.message.textElem?.text ?? "",
                   softWrap: true,
                   style: widget.fontStyle ??
-                      TextStyle(fontSize: isDesktopScreen ? 14 : 16, height: widget.chatModel.chatConfig.textHeight),
+                      TextStyle(color: textColor, fontSize: isDesktopScreen ? 14 : 16, height: widget.chatModel.chatConfig.textHeight),
                   specialTextSpanBuilder: DefaultSpecialTextSpanBuilder(
                     isUseQQPackage: widget.chatModel.chatConfig.stickerPanelConfig?.useQQStickerPackage ?? true,
                     isUseTencentCloudChatPackage:

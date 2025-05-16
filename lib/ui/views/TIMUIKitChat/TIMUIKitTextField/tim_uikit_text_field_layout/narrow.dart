@@ -229,10 +229,8 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
               defaultCustomEmojiStickerList: widget.isUseDefaultEmoji ? TUIKitStickerConstData.emojiList : [])
           : StickerPanel(
               isWideScreen: false,
-              sendTextMsg: () {
-                widget.onEmojiSubmitted();
-                setSendButton();
-              },
+              showDeleteButton: false,
+
               sendFaceMsg: widget.onCustomEmojiFaceSubmitted,
               deleteText: () {
                 widget.backSpaceText();
@@ -577,6 +575,8 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
                         SizedBox(
                           height: 32.0,
                           child: ElevatedButton(
+
+
                             onPressed: () {
                               widget.onSubmitted();
                               if (showKeyboard) {
@@ -588,7 +588,26 @@ class _TIMUIKitTextFieldLayoutNarrowState extends TIMUIKitState<TIMUIKitTextFiel
                                 });
                               }
                             },
-                            child: Text(TIM_t("发送")),
+                            clipBehavior: Clip.antiAlias,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF2DA1FB), // 蓝色背景
+                              // 调整内边距以适应图标，确保图标居中且有合适的留白
+                              // 原始 padding: EdgeInsets.symmetric(horizontal: 5, vertical: 4)
+                              // 可以根据图标的实际大小和期望的视觉效果调整
+                              padding: const EdgeInsets.all(8), // 示例：统一的内边距，可以调整
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8), // 圆角
+                              ),
+                              elevation: 0, // 无阴影
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              minimumSize: Size.zero,
+                            ),
+                            child:  SvgPicture.asset(
+                              'images/svg/vector.svg',
+                              package: 'tencent_cloud_chat_uikit',
+                              color:  Colors.white,
+                              width: 20,
+                              height: 20,)
                           ),
                         ),
                     ],

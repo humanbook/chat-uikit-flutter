@@ -174,12 +174,13 @@ class _MorePanelState extends TIMUIKitState<MorePanel> {
               height: 64,
               width: 64,
               margin: const EdgeInsets.only(bottom: 4),
+              padding: const EdgeInsets.all(16),
               decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5))),
               child: Image.asset(
-                "images/take_video.png",
+                "images/video_icon.png",
                 package: 'tencent_cloud_chat_uikit',
-                height: 64,
-                width: 64,
+                height: 12,
+                width: 12,
               ),
             )),
       if (PlatformUtils().isWeb)
