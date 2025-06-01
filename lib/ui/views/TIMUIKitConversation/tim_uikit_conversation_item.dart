@@ -156,17 +156,23 @@ class TIMUIKitConversationItem extends TIMUIKitStatelessWidget {
                 Row(
                   children: [
                     Expanded(child: _getShowMsgWidget(context)),
-                    if (unreadCount != 0)
+                    SizedBox(
+                        width: 5,
+                        height: 5,
+                        child:
+                    Stack(fit: StackFit.expand,
+                        clipBehavior: Clip.none,children: [ if (unreadCount != 0)
                       Positioned(
                         top: isDisturb ? -2.5 : -4.5,
-                        right: isDisturb ? -2.5 : -4.5,
+                        right: isDisturb ? -2.5 : -2.5,
                         child: UnconstrainedBox(
                           child: UnreadMessage(
                               width: isDisturb ? 10 : 18,
                               height: isDisturb ? 10 : 18,
                               unreadCount: isDisturb ? 0 : unreadCount),
                         ),
-                      ),
+                      )])),
+
                     if (isDisturb)
                       SizedBox(
                         width: 18,
