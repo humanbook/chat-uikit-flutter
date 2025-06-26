@@ -19,7 +19,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  tencent_cloud_chat_sdk: ^8.5.6864+6
+  tencent_cloud_chat_sdk: ^8.6.7019+4
   tim_ui_kit_sticker_plugin: ^4.0.2
   tencent_chat_i18n_tool: ^2.3.8
   adaptive_action_sheet: ^2.0.1
